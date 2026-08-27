@@ -1,13 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import { screenBody } from '../lib/stitch';
+import { screenContent } from '../lib/stitch';
 import { screens } from '../data/screens';
 
 const home = screens[0];
-const mobile = screenBody(home.mobile);
-const desktop = screenBody(home.desktop);
+const mobile = screenContent(home.mobile);
+const desktop = screenContent(home.desktop);
 ---
-<Base title={home.title}>
-  <div class="device-mobile" set:html={mobile}></div>
-  <div class="device-desktop" set:html={desktop}></div>
+<Base title={home.title} activePath="">
+  <div class="fl-page">
+    <div class="device-mobile" set:html={mobile}></div>
+    <div class="device-desktop" set:html={desktop}></div>
+  </div>
 </Base>

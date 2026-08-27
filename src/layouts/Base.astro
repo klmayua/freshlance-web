@@ -1,15 +1,25 @@
 ---
 import '../styles/global.css';
 import { screenConfig } from '../lib/stitch';
+import { screens } from '../data/screens';
 
 interface Props {
   title?: string;
   description?: string;
+  activePath?: string; // '' for home
 }
 const {
   title = 'Freshlance — Innovative Healthcare',
   description = 'Freshlance delivers high-touch, innovative healthcare across Nigeria — specialized care, medical equipment & consulting, and consultation services.',
+  activePath = '',
 } = Astro.props;
+
+const ICONS = {
+  '': 'home',
+  'specialized-care': 'medical_services',
+  'equipment-consulting': 'precision_manufacturing',
+  'consultation-contact': 'contact_mail',
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -37,45 +47,70 @@ const {
     </style>
   </head>
   <body class="fl-app">
+    <!-- UNIFORM premium top nav (desktop) -->
+    <nav class="fl-nav">
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="Freshlance" />
+        <span>Freshlance</span>
+      </a>
+      <div class="links">
+        {screens.map((s) => (
+          <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>{s.nav}</a>
+        ))}
+        <a class="cta" href="/consultation-contact">Book a Consult</a>
+      </div>
+    </nav>
+
     <slot />
+
+    <!-- UNIFORM premium bottom nav (mobile) -->
+    <nav class="fl-bottom">
+      {screens.map((s) => (
+        <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>
+          <span class="material-symbols-outlined">{ICONS[s.path] || 'home'}</span>
+          <span>{s.nav}</span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- UNIFORM premium footer -->
+    <footer class="fl-foot">
+      <div class="inner">
+        <div class="brand">
+          <img src="/logo.png" alt="Freshlance" />
+          <p>Pioneering high-touch healthcare through precision pharmaceuticals and holistic medical consulting across Nigeria.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/specialized-care">Specialized Care</a></li>
+            <li><a href="/equipment-consulting">Equipment &amp; Consulting</a></li>
+            <li><a href="/consultation-contact">Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/consultation-contact">Contact</a></li>
+            <li><a href="/consultation-contact">Book Inquiry</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/consultation-contact">Privacy Policy</a></li>
+            <li><a href="/consultation-contact">Regulatory</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal">© 2024 Freshlance Nigeria. Regulated by PCN. All rights reserved.</div>
+    </footer>
+
     <script is:inline>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
       }
-      // Rewire each Stitch screen's own nav (href="#") to the real routes.
-      (function () {
-        const NAV = {
-          'home': '/',
-          'freshlance': '/',
-          'freshlance nigeria': '/',
-          'freshlance nigeria home': '/',
-          'care': '/specialized-care',
-          'specialized care': '/specialized-care',
-          'specialised care': '/specialized-care',
-          'solutions': '/equipment-consulting',
-          'equipment': '/equipment-consulting',
-          'medical equipment': '/equipment-consulting',
-          'about': '/consultation-contact',
-          'contact': '/consultation-contact',
-          'contact us': '/consultation-contact',
-          'book inquiry': '/consultation-contact',
-          'book a consult': '/consultation-contact',
-          'request an inquiry': '/consultation-contact',
-          'explore services': '/specialized-care'
-        };
-        const norm = (s) => s.trim().toLowerCase().replace(/\s+/g, ' ');
-        document.querySelectorAll('a').forEach((a) => {
-          const href = a.getAttribute('href') || '';
-          if (!href.startsWith('#')) return;
-          let key = norm(a.textContent);
-          if (!NAV[key]) {
-            const al = a.getAttribute('aria-label');
-            if (al) key = norm(al);
-          }
-          const route = NAV[key];
-          if (route) a.setAttribute('href', route);
-        });
-      })();
     </script>
   </body>
 </html>

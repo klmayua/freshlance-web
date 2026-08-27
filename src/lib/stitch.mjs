@@ -19,3 +19,17 @@ export function screenConfig() {
   const m = html.match(/<script id="tailwind-config">([\s\S]*?)<\/script>/i);
   return m ? m[1].trim() : 'tailwind.config = {};';
 }
+
+// Each Stitch screen bundles its OWN <header>, mobile <nav>, and <footer>, all styled
+// differently per page. We strip those so the Astro shell can render ONE uniform,
+// premium nav + footer across every route. Returns the screen's unique body content.
+export function screenContent(id) {
+  let body = screenBody(id);
+  body = body.replace(/<header[\s\S]*?<\/header>/gi, '');
+  body = body.replace(/<footer[\s\S]*?<\/footer>/gi, '');
+  // mobile bottom nav: Stitch marks it `class="md:hidden ..."`
+  body = body.replace(/<nav\s+class="md:hidden[\s\S]*?<\/nav>/gi, '');
+  // any remaining bare <nav> that isn't the shared shell
+  body = body.replace(/<nav[\s\S]*?<\/nav>/gi, '');
+  return body;
+}

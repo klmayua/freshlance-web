@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { screenBody } from '../lib/stitch';
+import { screenContent } from '../lib/stitch';
 import { screens, getScreen } from '../data/screens';
 
 export function getStaticPaths() {
@@ -11,10 +11,12 @@ const { path } = Astro.params;
 const screen = getScreen(path || '');
 if (!screen) return Astro.redirect('/');
 
-const mobile = screenBody(screen.mobile);
-const desktop = screenBody(screen.desktop);
+const mobile = screenContent(screen.mobile);
+const desktop = screenContent(screen.desktop);
 ---
-<Base title={screen.title}>
-  <div class="device-mobile" set:html={mobile}></div>
-  <div class="device-desktop" set:html={desktop}></div>
+<Base title={screen.title} activePath={screen.path}>
+  <div class="fl-page">
+    <div class="device-mobile" set:html={mobile}></div>
+    <div class="device-desktop" set:html={desktop}></div>
+  </div>
 </Base>
