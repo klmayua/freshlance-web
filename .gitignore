@@ -9,3 +9,5 @@ pull_stitch.mjs
 pull_all.mjs
 screens_list.json
 screen_names.json
+
+.vercel
