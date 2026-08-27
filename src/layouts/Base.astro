@@ -1,15 +1,15 @@
 ---
 import '../styles/global.css';
-import { screens } from '../data/screens';
-import type { ScreenRoute } from '../data/screens';
+import { screenConfig } from '../lib/stitch';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
-  activePath?: string; // '' for home
 }
-
-const { title, description = 'Freshlance — innovative, high-touch healthcare across Nigeria.', activePath = '' } = Astro.props;
+const {
+  title = 'Freshlance — Innovative Healthcare',
+  description = 'Freshlance delivers high-touch, innovative healthcare across Nigeria — specialized care, medical equipment & consulting, and consultation services.',
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -27,71 +27,55 @@ const { title, description = 'Freshlance — innovative, high-touch healthcare a
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script is:inline set:html={screenConfig()}></script>
+    <style is:inline>
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .icon-filled { font-variation-settings: 'FILL' 1; }
+    </style>
   </head>
-  <body>
-    <!-- Desktop top nav -->
-    <nav class="fl-topnav">
-      <a class="brand" href="/">
-        <img src="/logo.png" alt="Freshlance" />
-        <span>Freshlance</span>
-      </a>
-      <div class="fl-navlinks">
-        {screens.map((s: ScreenRoute) => (
-          <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>{s.nav}</a>
-        ))}
-        <a class="fl-cta" href="/consultation-contact">Book a Consult</a>
-      </div>
-    </nav>
-
+  <body class="fl-app">
     <slot />
-
-    <!-- Mobile bottom nav -->
-    <nav class="fl-bottomnav">
-      {screens.map((s: ScreenRoute) => (
-        <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>
-          <span class="material-symbols-outlined">{s.icon}</span>
-          <span>{s.nav}</span>
-        </a>
-      ))}
-    </nav>
-
-    <div id="fl-install" class="fl-install">📲 Install Freshlance app</div>
-
-    <script>
-      // Register service worker (PWA)
+    <script is:inline>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(() => {});
-        });
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
       }
-      // Device-swap: ensure correct screen is visible (belt-and-suspenders with CSS)
+      // Rewire each Stitch screen's own nav (href="#") to the real routes.
       (function () {
-        const mq = window.matchMedia('(min-width: 768px)');
-        const apply = () => {
-          const isDesktop = mq.matches;
-          document.querySelectorAll('.screen-mobile').forEach((el) => el.classList.toggle('active', !isDesktop));
-          document.querySelectorAll('.screen-desktop').forEach((el) => el.classList.toggle('active', isDesktop));
+        const NAV = {
+          'home': '/',
+          'freshlance': '/',
+          'freshlance nigeria': '/',
+          'freshlance nigeria home': '/',
+          'care': '/specialized-care',
+          'specialized care': '/specialized-care',
+          'specialised care': '/specialized-care',
+          'solutions': '/equipment-consulting',
+          'equipment': '/equipment-consulting',
+          'medical equipment': '/equipment-consulting',
+          'about': '/consultation-contact',
+          'contact': '/consultation-contact',
+          'contact us': '/consultation-contact',
+          'book inquiry': '/consultation-contact',
+          'book a consult': '/consultation-contact',
+          'request an inquiry': '/consultation-contact',
+          'explore services': '/specialized-care'
         };
-        apply();
-        mq.addEventListener('change', apply);
+        const norm = (s) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+        document.querySelectorAll('a').forEach((a) => {
+          const href = a.getAttribute('href') || '';
+          if (!href.startsWith('#')) return;
+          let key = norm(a.textContent);
+          if (!NAV[key]) {
+            const al = a.getAttribute('aria-label');
+            if (al) key = norm(al);
+          }
+          const route = NAV[key];
+          if (route) a.setAttribute('href', route);
+        });
       })();
-      // Install prompt
-      let deferredPrompt: any = null;
-      const btn = document.getElementById('fl-install');
-      window.addEventListener('beforeinstallprompt', (e: any) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        btn?.classList.add('show');
-      });
-      btn?.addEventListener('click', async () => {
-        if (!deferredPrompt) return;
-        deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-        deferredPrompt = null;
-        btn.classList.remove('show');
-      });
-      window.addEventListener('appinstalled', () => btn?.classList.remove('show'));
     </script>
   </body>
 </html>

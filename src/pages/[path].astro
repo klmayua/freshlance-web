@@ -1,19 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
+import { screenBody } from '../lib/stitch';
 import { screens, getScreen } from '../data/screens';
 
 export function getStaticPaths() {
-  // every screen except home (home has its own index.astro)
   return screens.filter((s) => s.path !== '').map((s) => ({ params: { path: s.path } }));
 }
 
 const { path } = Astro.params;
 const screen = getScreen(path || '');
 if (!screen) return Astro.redirect('/');
+
+const mobile = screenBody(screen.mobile);
+const desktop = screenBody(screen.desktop);
 ---
-<Base title={screen.title} activePath={screen.path}>
-  <main class="fl-stage">
-    <iframe class="screen screen-mobile active" src={`/stitch-screens/${screen.mobile}.html`} title={`${screen.nav} mobile`} loading="lazy"></iframe>
-    <iframe class="screen screen-desktop" src={`/stitch-screens/${screen.desktop}.html`} title={`${screen.nav} desktop`} loading="lazy"></iframe>
-  </main>
+<Base title={screen.title}>
+  <div class="device-mobile" set:html={mobile}></div>
+  <div class="device-desktop" set:html={desktop}></div>
 </Base>

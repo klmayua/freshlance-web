@@ -1,11 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { screenBody } from '../lib/stitch';
 import { screens } from '../data/screens';
+
 const home = screens[0];
+const mobile = screenBody(home.mobile);
+const desktop = screenBody(home.desktop);
 ---
-<Base title={home.title} activePath="" description={home.title}>
-  <main class="fl-stage">
-    <iframe class="screen screen-mobile active" src={`/stitch-screens/${home.mobile}.html`} title="Freshlance mobile" loading="eager"></iframe>
-    <iframe class="screen screen-desktop" src={`/stitch-screens/${home.desktop}.html`} title="Freshlance desktop" loading="lazy"></iframe>
-  </main>
+<Base title={home.title}>
+  <div class="device-mobile" set:html={mobile}></div>
+  <div class="device-desktop" set:html={desktop}></div>
 </Base>
