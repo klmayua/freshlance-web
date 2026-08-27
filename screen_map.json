@@ -1,0 +1,22 @@
+{
+  "specialized-care-services": {
+    "title": "Specialized Care Services",
+    "mobile": "8661ab3f5447470bafd6e4f693d18e87",
+    "desktop": "0922f5d4752c48ffa90554ce037c0d74"
+  },
+  "equipment-consulting": {
+    "title": "Equipment & Consulting",
+    "mobile": "128f5024b9b5471b8823060c11d3c8fb",
+    "desktop": "c31c43cfb2664323b68408fe1cc4021a"
+  },
+  "consultation-contact": {
+    "title": "Consultation & Contact",
+    "mobile": "10229c97bcd24a37b653b127dd600902",
+    "desktop": "254dfd4ddf374ea0ad5158288065331f"
+  },
+  "freshlance-innovative-healthcare": {
+    "title": "Freshlance | Innovative Healthcare",
+    "mobile": "b9d87a26c23543fead4d5d070d50cd0e",
+    "desktop": "685587f3b3fd493aaf9bcd8e3289738e"
+  }
+}

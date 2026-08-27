@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import { screens } from '../data/screens';
+import type { ScreenRoute } from '../data/screens';
+
+interface Props {
+  title: string;
+  description?: string;
+  activePath?: string; // '' for home
+}
+
+const { title, description = 'Freshlance — innovative, high-touch healthcare across Nigeria.', activePath = '' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1b6d24" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Freshlance" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/icon-512.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Desktop top nav -->
+    <nav class="fl-topnav">
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="Freshlance" />
+        <span>Freshlance</span>
+      </a>
+      <div class="fl-navlinks">
+        {screens.map((s: ScreenRoute) => (
+          <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>{s.nav}</a>
+        ))}
+        <a class="fl-cta" href="/consultation-contact">Book a Consult</a>
+      </div>
+    </nav>
+
+    <slot />
+
+    <!-- Mobile bottom nav -->
+    <nav class="fl-bottomnav">
+      {screens.map((s: ScreenRoute) => (
+        <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>
+          <span class="material-symbols-outlined">{s.icon}</span>
+          <span>{s.nav}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div id="fl-install" class="fl-install">📲 Install Freshlance app</div>
+
+    <script>
+      // Register service worker (PWA)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+      // Device-swap: ensure correct screen is visible (belt-and-suspenders with CSS)
+      (function () {
+        const mq = window.matchMedia('(min-width: 768px)');
+        const apply = () => {
+          const isDesktop = mq.matches;
+          document.querySelectorAll('.screen-mobile').forEach((el) => el.classList.toggle('active', !isDesktop));
+          document.querySelectorAll('.screen-desktop').forEach((el) => el.classList.toggle('active', isDesktop));
+        };
+        apply();
+        mq.addEventListener('change', apply);
+      })();
+      // Install prompt
+      let deferredPrompt: any = null;
+      const btn = document.getElementById('fl-install');
+      window.addEventListener('beforeinstallprompt', (e: any) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        btn?.classList.add('show');
+      });
+      btn?.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        btn.classList.remove('show');
+      });
+      window.addEventListener('appinstalled', () => btn?.classList.remove('show'));
+    </script>
+  </body>
+</html>

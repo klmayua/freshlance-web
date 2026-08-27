@@ -1,0 +1,11 @@
+node_modules
+dist
+.astro
+.env
+.env.*
+*.log
+.DS_Store
+pull_stitch.mjs
+pull_all.mjs
+screens_list.json
+screen_names.json

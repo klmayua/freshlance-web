@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { screens } from '../data/screens';
+const home = screens[0];
+---
+<Base title={home.title} activePath="" description={home.title}>
+  <main class="fl-stage">
+    <iframe class="screen screen-mobile active" src={`/stitch-screens/${home.mobile}.html`} title="Freshlance mobile" loading="eager"></iframe>
+    <iframe class="screen screen-desktop" src={`/stitch-screens/${home.desktop}.html`} title="Freshlance desktop" loading="lazy"></iframe>
+  </main>
+</Base>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freshlance - High-Value Disease Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f8f9ff",
+                      "surface-tint": "#595f64",
+                      "tertiary-fixed-dim": "#c4c7c5",
+                      "on-primary-container": "#7f858a",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#44474a",
+                      "tertiary-container": "#181c1b",
+                      "tertiary-fixed": "#e0e3e1",
+                      "on-tertiary-fixed": "#181c1b",
+                      "surface-container-low": "#eff4ff",
+                      "secondary": "#1b6d24",
+                      "surface": "#f8f9ff",
+                      "on-background": "#0b1c30",
+                      "surface-container": "#e5eeff",
+                      "inverse-surface": "#213145",
+                      "outline": "#74777a",
+                      "surface-dim": "#cbdbf5",
+                      "on-primary-fixed": "#161c20",
+                      "surface-variant": "#d3e4fe",
+                      "primary-fixed-dim": "#c1c7cd",
+                      "on-tertiary-container": "#818583",
+                      "primary-fixed": "#dde3e9",
+                      "on-secondary-container": "#217128",
+                      "inverse-primary": "#c1c7cd",
+                      "surface-container-high": "#dce9ff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#434846",
+                      "on-error-container": "#93000a",
+                      "primary-container": "#161c20",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#88d982",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c4c7ca",
+                      "on-primary-fixed-variant": "#41484c",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#005312",
+                      "inverse-on-surface": "#eaf1ff",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#002204",
+                      "tertiary": "#000000",
+                      "secondary-fixed": "#a3f69c",
+                      "secondary-container": "#a0f399",
+                      "on-surface": "#0b1c30",
+                      "surface-container-highest": "#d3e4fe",
+                      "primary": "#000000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "section-gap": "64px",
+                      "container-margin-mobile": "20px",
+                      "unit": "4px",
+                      "container-margin-desktop": "80px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ],
+                      "headline-lg": [
+                              "Manrope"
+                      ],
+                      "headline-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-bold": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-surface-dim selection:text-on-surface pb-20">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-surface-bright dark:bg-surface-bright border-b border-outline-variant dark:border-outline-variant z-50 sticky transition-all duration-300" id="global-header">
+<div class="flex justify-between items-center w-full px-gutter max-w-7xl mx-auto h-20"><div class="flex items-center justify-center w-full h-full"><img alt="Freshlance Logo" class="h-10 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFBkYhrdKjX4TE2MrNXN2rmmzn459yw6-3_GukgXt8k2j90D_BLOfs5jvmDf6azx7pxLq6Dlso45LnrMIiSuBvM-I1Y8seHjMeLu-xJHt0mpcDyENM1s7jYhBwvAdRB0ECp7l4zLCs0HbmF2E8q1iYzny9nWteDVTQIQpp483uRHP3oDm-EvK2NwKnOTEeTaUybWxOe4nMJyYgKG3l3-dVxpGIu3FicBOfFaylPD_DdIkTnX1ydhXv4UNKuros0WEJUQ"/></div></div>
+</header>
+<main class="w-full max-w-7xl mx-auto px-gutter md:px-container-margin-desktop py-section-gap">
+<!-- Hero Section -->
+<section class="mb-section-gap grid grid-cols-1 lg:grid-cols-12 gap-stack-lg items-center">
+<div class="lg:col-span-7 space-y-stack-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-full mb-stack-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Specialized Care</span>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary tracking-tight">
+                    Precision Solutions for <span class="text-secondary">High-Value Disease Care</span>.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                    Freshlance delivers authoritative, clinically-backed pharmaceutical products and specialized management programs for chronic conditions, ensuring unparalleled precision and holistic wellness.
+                </p>
+<div class="flex flex-wrap gap-stack-sm pt-stack-sm">
+<button class="bg-secondary text-on-secondary font-label-bold text-label-bold px-8 py-4 rounded-DEFAULT hover:bg-on-secondary-fixed transition-all duration-200 shadow-sm hover:shadow-md">
+                        Explore Treatments
+                    </button>
+<button class="bg-transparent text-primary border-2 border-primary font-label-bold text-label-bold px-8 py-4 rounded-DEFAULT hover:bg-surface-dim transition-colors duration-200">
+                        View Clinical Trials
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-sm border border-outline-variant bg-surface-container-low group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro photograph of pristine, modern pharmaceutical packaging in a high-key, minimalist clinical setting. The lighting is soft and diffuse, highlighting the premium quality of the medical products. The scene uses a sophisticated palette of crisp whites, soft greys, and subtle medical green accents. The mood is authoritative, clean, and highly professional, reflecting high-value disease care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1K62HETCOe1tms0dLnIQwhmbAn7BUGPzmsK3763u6_CQB5hk4x5J3vfwINzn5lQ9F_xqop2258KBOKAy_DFwkKsv7aLcif9j7zkIbPZs0JvByomhXBiXQ6--we1qSMMJ-tLpIkCBLNbrxTLcPuX9Q_MbQsG6aHE--_s-om4YS7c6xT6wenZkxuYeADtD0feKI64zD8uCoy5mNiyCnn3jla3wngclhSdr9N4dQob2rQe-sY0btc-or"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-stack-md left-stack-md right-stack-md flex gap-3">
+<div class="bg-surface-container-lowest/90 backdrop-blur-sm p-3 rounded-lg border border-outline-variant flex-1">
+<span class="material-symbols-outlined text-secondary mb-1">verified_user</span>
+<p class="font-label-bold text-label-bold text-primary">FDA Approved</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Stringent standards</p>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-sm p-3 rounded-lg border border-outline-variant flex-1">
+<span class="material-symbols-outlined text-secondary mb-1">science</span>
+<p class="font-label-bold text-label-bold text-primary">Clinically Proven</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Efficacy guaranteed</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Areas of Focus -->
+<section class="mb-section-gap">
+<div class="mb-stack-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-stack-sm">Specialized Therapeutic Areas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Targeted pharmaceutical interventions combined with expert-led management protocols.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-sm auto-rows-[280px]">
+<!-- Large Card: Weight Loss -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant p-stack-lg relative overflow-hidden group hover:border-secondary transition-colors duration-300 shadow-sm hover:shadow-md">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/4"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[32px] text-secondary p-3 bg-surface-container rounded-lg">scale</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary font-label-caps text-label-caps rounded-full uppercase">Primary Focus</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Advanced Weight Loss Protocol</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mb-4">Comprehensive GLP-1 receptor agonist therapies integrated with personalized metabolic nutritional counseling.</p>
+<a class="inline-flex items-center gap-2 font-label-bold text-label-bold text-secondary hover:text-on-secondary-fixed transition-colors" href="#">
+                                View Formulary <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Small Card: Chronic Disease -->
+<div class="md:col-span-4 bg-surface-bright rounded-xl border border-outline-variant p-stack-lg relative overflow-hidden group hover:border-outline transition-colors duration-300">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<span class="material-symbols-outlined text-[32px] text-surface-tint p-3 bg-surface-container-low rounded-lg w-max">monitor_heart</span>
+<div>
+<h3 class="font-headline-md text-[20px] font-semibold text-primary mb-2 leading-tight">Cardiometabolic Management</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-efficacy interventions for hypertension and dyslipidemia.</p>
+</div>
+</div>
+</div>
+<!-- Small Card: Oncology Support -->
+<div class="md:col-span-4 bg-surface-bright rounded-xl border border-outline-variant p-stack-lg relative overflow-hidden group hover:border-outline transition-colors duration-300">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<span class="material-symbols-outlined text-[32px] text-surface-tint p-3 bg-surface-container-low rounded-lg w-max">biotech</span>
+<div>
+<h3 class="font-headline-md text-[20px] font-semibold text-primary mb-2 leading-tight">Oncology Support Care</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Adjunctive therapies to mitigate side effects and improve QoL.</p>
+</div>
+</div>
+</div>
+<!-- Medium Card: Healthy Living -->
+<div class="md:col-span-8 bg-surface-container rounded-xl border border-outline-variant p-stack-lg relative overflow-hidden flex items-center">
+<div class="flex-1 pr-stack-lg z-10">
+<span class="material-symbols-outlined text-[32px] text-primary p-3 bg-surface-container-lowest rounded-lg mb-4 inline-block">spa</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Proactive Healthy Living</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Nutraceuticals and preventive wellness strategies designed to maintain peak physiological performance.</p>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-2 rounded-DEFAULT hover:bg-inverse-surface transition-colors duration-200">Explore Services</button>
+</div>
+<div class="hidden md:block w-1/3 h-full relative rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A minimalist, high-end still life of premium pharmaceutical supplements and fresh botanical elements on a clean white surface. Soft, natural daylight creates a bright, serene atmosphere. The color palette features pristine whites, deep charcoal greys, and vibrant, natural greens. The composition implies proactive health, wellness, and scientific purity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlkwkvrIf7i6Pa-vu1yiOV-QH1Fe8Kc6UVAE44OhyyN4-Is-TbNFL52AbZQpORutg3sEnkD0Tg3BYVm8TUMRKQGCXibH6Q00yW-VVIW4_KdgyPOZxffMcFfFrHbx7yAGzzHkBYstBUn8SKTxsgdhYTjkoMwqSA7W9_Z332tBMUqZFW0lYIcISPz8vCvZXc_6mgKKoBgUScIKxN6fBQbNvTFFx4Czbr671IVFPJGHeIPGDTLzosdySb"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container dark:bg-surface-container border-t border-outline-variant/20 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg w-full px-gutter py-section-gap max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1 space-y-4">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[24px] text-primary" data-icon="medical_services">medical_services</span>
+<span class="text-label-bold font-label-bold text-primary dark:text-primary tracking-tight text-lg">Freshlance</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-Touch Healthcare &amp; Specialized Pharmaceutical Consulting.</p>
+</div>
+<div class="col-span-1 space-y-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase tracking-wider">Services</h4>
+<a class="block font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Weight Loss Care</a>
+<a class="block font-body-sm text-body-sm text-secondary dark:text-secondary hover:underline transition-colors font-medium" href="#">High-Value Disease Care</a>
+<a class="block font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Medical Equipment</a>
+</div>
+<div class="col-span-1 space-y-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase tracking-wider">Company</h4>
+<a class="block font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Consulting Services</a>
+<a class="block font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="block font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary dark:hover:text-secondary transition-colors" href="#">Regulatory Disclaimers</a>
+</div>
+<div class="col-span-1 space-y-4">
+<div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">shield</span>
+<div>
+<p class="font-label-bold text-label-bold text-primary mb-1">PCN Certified</p>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant">Regulated practice ensuring highest clinical standards.</p>
+</div>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 pt-8 border-t border-outline-variant/30 mt-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-sm text-[12px] text-on-surface-variant">© 2024 Freshlance Nigeria. Regulated by PCN. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple header scroll effect for premium feel
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('global-header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-sm', 'bg-surface-bright/95', 'backdrop-blur-md');
+                header.classList.remove('bg-surface-bright');
+            } else {
+                header.classList.remove('shadow-sm', 'bg-surface-bright/95', 'backdrop-blur-md');
+                header.classList.add('bg-surface-bright');
+            }
+        });
+    </script>
+<nav class="fixed bottom-0 left-0 right-0 bg-surface-bright border-t border-outline-variant z-50 flex justify-around items-center py-2 px-4 md:hidden"><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined">home</span><span class="text-label-caps">Home</span></a><a class="flex flex-col items-center gap-1 text-secondary" href="#"><span class="material-symbols-outlined">medical_services</span><span class="text-label-caps">Care</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined">biotech</span><span class="text-label-caps">Solutions</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined">mail</span><span class="text-label-caps">Contact</span></a></nav>
+</body></html>

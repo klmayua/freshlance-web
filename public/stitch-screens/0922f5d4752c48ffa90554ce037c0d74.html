@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Care Services | Freshlance Nigeria</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7f858a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-background": "#0b1c30",
+                        "surface": "#f8f9ff",
+                        "tertiary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "tertiary-container": "#181c1b",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-container": "#217128",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-fixed": "#181c1b",
+                        "on-secondary-fixed-variant": "#005312",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#41484c",
+                        "outline-variant": "#c4c7ca",
+                        "surface-container-low": "#eff4ff",
+                        "primary": "#000000",
+                        "primary-container": "#161c20",
+                        "outline": "#74777a",
+                        "secondary-container": "#a0f399",
+                        "secondary-fixed": "#a3f69c",
+                        "secondary-fixed-dim": "#88d982",
+                        "inverse-primary": "#c1c7cd",
+                        "on-surface-variant": "#44474a",
+                        "on-secondary-fixed": "#002204",
+                        "tertiary-fixed-dim": "#c4c7c5",
+                        "secondary": "#1b6d24",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#818583",
+                        "inverse-surface": "#213145",
+                        "surface-tint": "#595f64",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#434846",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed": "#e0e3e1",
+                        "primary-fixed": "#dde3e9",
+                        "primary-fixed-dim": "#c1c7cd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#161c20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "80px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "section-gap": "64px",
+                        "container-margin-mobile": "20px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Manrope"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "label-bold": ["Hanken Grotesk"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { @apply bg-background text-on-surface antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .clinical-shadow { box-shadow: 0 4px 24px -4px rgba(11, 28, 48, 0.04); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav aria-label="Main Navigation" class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-on-primary-container sticky top-0 z-50 w-full">
+<div class="flex justify-between items-center w-full px-container-margin-desktop max-w-7xl mx-auto py-stack-md">
+<div class="hidden md:flex items-center gap-stack-lg flex-1">
+<a class="text-secondary dark:text-secondary-fixed border-b-2 border-secondary dark:border-secondary-fixed pb-1 font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Care</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-label-bold text-label-bold hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Solutions</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-label-bold text-label-bold hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-primary-container font-label-bold text-label-bold hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Contact</a>
+</div>
+<a class="flex items-center justify-center flex-1" href="#">
+<img alt="Freshlance Nigeria Logo" class="h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTDs2C6aDz_u6BEM0yhO-B-6eo19IFVYKGYTJtVbHYq3XfdrEdDfnDUVRqpD2LgoyzzECzFCO-87pR1uTHggt0a8Uc6BpCPpjUwX6sxKdxxXU-xnG7XT7wJuUICbQGTrg1kS-ROuQHOjNfXPAg3_Fo_g7F5n-v1qUf6AxQfbVRZTzHY3iAxeqHejJffaGdHjg-vW-Nd8ezZ6F_1XbjSM-p5wgDwRqsx9DLy1eXNWgk4EHadbrzzbzhJMyg-SD58gwnfg"/>
+</a>
+<div class="flex flex-1 justify-end">
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded hover:bg-primary-container transition-all scale-95 active:opacity-80">
+                Book Inquiry
+            </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-container-margin-desktop py-section-gap flex flex-col gap-section-gap">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-stack-md">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Specialized Clinical Care</span>
+<h1 class="font-display-lg text-display-lg text-on-surface">Precision Solutions for High-Value Disease Care.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Delivering authoritative, innovative treatments tailored for complex medical conditions. Bridging clinical precision with proactive wellness strategies for high-touch healthcare outcomes.
+                </p>
+<div class="flex gap-stack-sm pt-stack-sm">
+<button class="bg-secondary text-on-primary font-label-bold text-label-bold px-8 py-3 rounded hover:bg-secondary-container hover:text-on-surface transition-colors clinical-shadow">
+                        Explore Treatments
+                    </button>
+<button class="bg-transparent border-2 border-primary text-primary font-label-bold text-label-bold px-8 py-3 rounded hover:bg-surface-container-low transition-colors">
+                        Book Consultation
+                    </button>
+</div>
+</div>
+<div class="relative h-[500px] w-full rounded-xl overflow-hidden clinical-shadow">
+<img class="object-cover w-full h-full" data-alt="High-fidelity, professional pharmaceutical office in Nigeria. An African female medical professional in a lab coat is interacting with a digital tablet in a clean, modern clinical environment. Bright, soft natural lighting, premium medical setting, realistic photography. Consistent with a high-end pharmaceutical brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1K62HETCOe1tms0dLnIQwhmbAn7BUGPzmsK3763u6_CQB5hk4x5J3vfwINzn5lQ9F_xqop2258KBOKAy_DFwkKsv7aLcif9j7zkIbPZs0JvByomhXBiXQ6--we1qSMMJ-tLpIkCBLNbrxTLcPuX9Q_MbQsG6aHE--_s-om4YS7c6xT6wenZkxuYeADtD0feKI64zD8uCoy5mNiyCnn3jla3wngclhSdr9N4dQob2rQe-sY0btc-or"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+</div>
+</section>
+<!-- Therapeutic Areas -->
+<section class="flex flex-col gap-stack-lg">
+<div class="flex flex-col gap-stack-sm items-center text-center max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Core Therapeutic Focus</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Targeted interventions and specialized protocols designed for optimal patient outcomes in high-stress medical contexts.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-stack-lg flex flex-col gap-stack-md clinical-shadow hover:-translate-y-1 transition-transform duration-300 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">prescriptions</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Oncology Support</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">Comprehensive care protocols complementing primary oncological treatments, focusing on patient resilience and symptom management.</p>
+<a class="font-label-bold text-label-bold text-secondary flex items-center gap-1 hover:underline mt-auto" href="#">
+                        View Protocol <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-stack-lg flex flex-col gap-stack-md clinical-shadow hover:-translate-y-1 transition-transform duration-300 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Cardiometabolic Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">Advanced monitoring and intervention strategies for cardiovascular and metabolic disorders, ensuring stabilized health metrics.</p>
+<a class="font-label-bold text-label-bold text-secondary flex items-center gap-1 hover:underline mt-auto" href="#">
+                        View Protocol <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-stack-lg flex flex-col gap-stack-md clinical-shadow hover:-translate-y-1 transition-transform duration-300 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Advanced Weight Loss</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">Clinical weight management protocols utilizing proactive healthy living strategies and evidence-based therapeutic interventions.</p>
+<a class="font-label-bold text-label-bold text-secondary flex items-center gap-1 hover:underline mt-auto" href="#">
+                        View Protocol <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-primary-container border-t border-outline-variant w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-container-margin-desktop py-section-gap max-w-7xl mx-auto">
+<div class="flex flex-col gap-stack-sm">
+<span class="font-headline-md text-headline-md text-primary dark:text-surface-bright font-bold">Freshlance Nigeria</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Freshlance Nigeria. All Rights Reserved. Pharmaceutical regulatory disclaimers apply.</p>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-on-surface dark:text-on-primary-fixed uppercase">Navigation</span>
+<div class="flex flex-col gap-2">
+<a class="font-body-sm text-body-sm text-primary dark:text-primary-fixed font-bold opacity-90 hover:opacity-100 hover:underline hover:text-secondary transition-all" href="#">Care Services</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant opacity-90 hover:opacity-100 hover:underline hover:text-secondary transition-all" href="#">Medical Solutions</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant opacity-90 hover:opacity-100 hover:underline hover:text-secondary transition-all" href="#">Corporate Info</a>
+</div>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-on-surface dark:text-on-primary-fixed uppercase">Legal &amp; Contact</span>
+<div class="flex flex-col gap-2">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant opacity-90 hover:opacity-100 hover:underline hover:text-secondary transition-all" href="#">Compliance</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant opacity-90 hover:opacity-100 hover:underline hover:text-secondary transition-all" href="#">Contact Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-primary-fixed-variant opacity-90 hover:opacity-100 hover:underline hover:text-secondary transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,27 @@
+{
+  "name": "Freshlance — Innovative Healthcare",
+  "short_name": "Freshlance",
+  "description": "Freshlance delivers high-touch, innovative healthcare across Nigeria — specialized care, medical equipment & consulting, and consultation services.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8f9ff",
+  "theme_color": "#1b6d24",
+  "lang": "en",
+  "categories": ["health", "medical", "business"],
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

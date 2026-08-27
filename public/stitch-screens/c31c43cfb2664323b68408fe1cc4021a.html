@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freshlance Nigeria | Medical Equipment &amp; Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7f858a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-background": "#0b1c30",
+                        "surface": "#f8f9ff",
+                        "tertiary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "tertiary-container": "#181c1b",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-container": "#217128",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-fixed": "#181c1b",
+                        "on-secondary-fixed-variant": "#005312",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#41484c",
+                        "outline-variant": "#c4c7ca",
+                        "surface-container-low": "#eff4ff",
+                        "primary": "#000000",
+                        "primary-container": "#161c20",
+                        "outline": "#74777a",
+                        "secondary-container": "#a0f399",
+                        "secondary-fixed": "#a3f69c",
+                        "secondary-fixed-dim": "#88d982",
+                        "inverse-primary": "#c1c7cd",
+                        "on-surface-variant": "#44474a",
+                        "on-secondary-fixed": "#002204",
+                        "tertiary-fixed-dim": "#c4c7c5",
+                        "secondary": "#1b6d24",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#818583",
+                        "inverse-surface": "#213145",
+                        "surface-tint": "#595f64",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#434846",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed": "#e0e3e1",
+                        "primary-fixed": "#dde3e9",
+                        "primary-fixed-dim": "#c1c7cd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#161c20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "80px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "section-gap": "64px",
+                        "container-margin-mobile": "20px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg": ["Manrope"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "label-bold": ["Hanken Grotesk"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-container-margin-desktop max-w-7xl mx-auto py-stack-md">
+<div class="flex-1 hidden md:flex justify-start">
+<nav class="flex gap-gutter items-center">
+<a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200" href="#">Care</a>
+<a class="text-secondary border-b-2 border-secondary pb-1 font-label-bold hover:text-secondary transition-colors duration-200" href="#">Solutions</a>
+<a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-label-bold hover:text-secondary transition-colors duration-200" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex-1 md:flex-none flex justify-center">
+<img alt="Freshlance Nigeria Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_tbFuWSuRUUlAk8dwXqJ4bCXrsqhJ5-Xh-vK2y7O8Wxsdya8IajmojkHD33dN-aGMSZ1EsHhP_CnNEaWfWnQg-ZzveSgbJW_2GsZJOX8ygzeKi6RHfoiZdRLJor2wHYbXvDzFO_N0TUHCqOWip3erug8YDtXkq-nSUgEFvqx9Kv1fBFOlHuM92hDaPpzVcs9R9uEH523-1jjZ_Z9WQcO9SOzww15pGYaBD6y8DhDDivHp4mD6w4GqVanT-sIOduq7hw"/>
+</div>
+<div class="flex-1 flex justify-end">
+<button class="bg-primary text-on-primary font-label-bold px-6 py-3 rounded-DEFAULT hover:bg-primary-container transition-all scale-95 active:opacity-80">
+                Book Inquiry
+            </button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="px-container-margin-desktop max-w-7xl mx-auto py-section-gap grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="space-y-stack-md">
+<h1 class="font-display-lg text-display-lg text-primary">
+                    Advanced Medical Equipment &amp; Strategic Consulting
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Empowering Nigerian healthcare providers with state-of-the-art diagnostic tools and expert pharmaceutical consulting for optimal patient care and operational efficiency.
+                </p>
+<div class="pt-stack-sm flex gap-4">
+<button class="bg-secondary text-on-secondary font-label-bold px-8 py-4 rounded-DEFAULT hover:bg-on-secondary-container transition-all flex items-center gap-2">
+                        Request a Consultation
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-transparent border-2 border-primary text-primary font-label-bold px-8 py-4 rounded-DEFAULT hover:bg-surface-container-low transition-all">
+                        Explore Catalog
+                    </button>
+</div>
+</div>
+<div class="relative h-[500px] w-full rounded-xl overflow-hidden shadow-sm">
+<img alt="Advanced Medical Diagnostic Room" class="object-cover w-full h-full absolute inset-0" data-alt="A modern, high-tech hospital diagnostic room in Nigeria, featuring state-of-the-art ultrasound and monitoring equipment. The room is brightly lit with clean white lights, emphasizing a pristine, clinical environment. Subtle green branding accents are visible. The overall mood is professional, advanced, and reassuring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUiFIbbfOqmn5DpBIMCUoanP2EQH1Kw0eTMibvU2ac9c3b6B4OFbM-CK8uaVfrDIzFwXxhK9ia7W8T5lOoAUKWFoOzNqbR-qRZVDLcVuKmN42KlBGuMA2EZYSyY2jif3I724U-hjS_aLjV9z97U7G-jjn9UP87eoBO2ke4w2dR0OwPiqAtuk0QOyYrcGbqsPkZFolpf94hzrGnbTknDXI9aFLqXUHTSgjPXW9M8fLqWiPDnopojuF0"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface/20 to-transparent"></div>
+</div>
+</section>
+<!-- Diagnostic Tools Showcase (Bento Grid) -->
+<section class="bg-surface-container-lowest py-section-gap border-y border-outline-variant">
+<div class="px-container-margin-desktop max-w-7xl mx-auto space-y-stack-lg">
+<div class="text-center max-w-2xl mx-auto space-y-stack-sm">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Premium Equipment</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Enterprise Diagnostic Solutions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Reliable, precision-engineered medical devices designed for high-volume clinical environments.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Ultrasound -->
+<div class="col-span-1 md:col-span-2 bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-secondary transition-colors duration-300">
+<div class="h-64 relative overflow-hidden bg-surface-container">
+<img alt="Ultrasound Systems" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of a sophisticated ultrasound machine interface with a clear, high-resolution screen displaying a medical scan. The machine is set against a clean, white clinical background. The lighting is bright and focused on the screen and controls, conveying precision and technological advancement in healthcare." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcR2UeFxog3JH_CnxGsMmuttUm3cdj6lATxYThAkwpa3VbdzAIVDPG8x9GEUBhaMudary_N77nnriVzGvIZnp4v16Y-65Wi3jNS7h7AsDmCWIk0p29ND1YGe2wwmdSgY4w6NEgVOTox_Nh8DhW40Gu3BFehSD0KpNaKkdspz56kpG6A0KtXMxKkN2lOuO-3X2Wb_jaL4yPU1gDJBhXRVu4pnqyc9V56uwIeM8DCGwLwjXPpMZy88O3"/>
+</div>
+<div class="p-stack-md flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Advanced Ultrasound Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">High-fidelity imaging solutions providing unparalleled clarity for accurate diagnoses.</p>
+</div>
+<div class="mt-stack-sm flex items-center text-secondary font-label-bold group-hover:underline">
+                                View Specifications <span class="material-symbols-outlined text-sm ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Vital Monitors -->
+<div class="col-span-1 bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-secondary transition-colors duration-300">
+<div class="h-48 relative overflow-hidden bg-surface-container">
+<img alt="Vital Monitors" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern patient vital signs monitor displaying various waveforms and numbers in vibrant colors against a dark screen. The monitor is mounted in a bright, modern hospital ward setting. The aesthetic is clinical, clean, and highly professional, emphasizing critical care monitoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7od7N7X2ni0CiUg_KTToWlBHhvTCZkdQM9dikkn2FDYhLIXK5cIElqVakTHyIv_Cuadm-8VX8m1fOCECfd3fHASuu9w2_2XcMtVHdEkZ95vom04ZxXN_63PMilOLX1xRl8ZzbrSaGe1osowFxHP_k1AEbWQDowZrTsRW-wD7J5Hxz_H46CwR_zQVtToJXLzq2l5y62SVtnMTO6rewtGjXFTs3Bs09aZgL4c23egLDUlTaxqYMgOkJ"/>
+</div>
+<div class="p-stack-md flex-grow flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Vital Signs Monitors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Continuous, reliable patient monitoring for critical care settings.</p>
+</div>
+</div>
+</div>
+<!-- Automated Analyzers -->
+<div class="col-span-1 md:col-span-3 bg-surface rounded-xl border border-outline-variant overflow-hidden flex flex-col md:flex-row group hover:border-secondary transition-colors duration-300">
+<div class="md:w-1/3 h-48 md:h-auto relative overflow-hidden bg-surface-container">
+<img alt="Automated Analyzers" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="A high-throughput automated laboratory blood analyzer machine in operation. The setting is a pristine, brightly lit medical laboratory with white surfaces and subtle green accents. The machine looks complex and precise, highlighting efficiency and automation in clinical diagnostics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA828Ct6hEn2GQ3kgr1mvssR0EaETQAClIk1t2P0G1jmHujMTjiW21c7OiW0A8UI663nJ8rRAO_jgIvynVYeBFYzfyVkQ5Z9OYOYtbXxt1kJjYdMbnu9j-aqKNsaF2TI5oeuF-sDl_16A9sMguprb352PJ0a53XpwPNovedzt-Iogowes37ufv7mlnaoyizPvshvB7aExawFQaYLAEOxG3FWb1y_68KtTMWbJG7gCCHcgDqEn3s-k9K"/>
+</div>
+<div class="p-stack-md md:p-stack-lg md:w-2/3 flex flex-col justify-center">
+<span class="inline-block bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-caps text-label-caps mb-4 w-fit">Lab Operations</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-3">High-Throughput Automated Analyzers</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 max-w-2xl">Streamline your laboratory workflow with our state-of-the-art diagnostic analyzers, delivering rapid and precise results to support faster clinical decision-making.</p>
+<button class="text-primary font-label-bold underline hover:text-secondary transition-colors w-fit">Request Demo</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Consulting Section (Glassmorphism inspired subtle overlay) -->
+<section class="relative py-section-gap bg-surface-container-high overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-secondary/5 rounded-l-full blur-3xl transform translate-x-1/4 -translate-y-1/4"></div>
+<div class="px-container-margin-desktop max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center">
+<div class="space-y-stack-md">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Expert Guidance</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Pharmaceutical Consulting for Nigerian Providers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Navigating the complexities of the healthcare landscape requires deep local expertise and strategic foresight. Our consulting services empower your practice to excel.</p>
+<ul class="space-y-stack-sm pt-stack-sm">
+<li class="flex items-start gap-3 bg-surface p-4 rounded-lg border border-outline-variant shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="policy">policy</span>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary font-semibold">Regulatory Compliance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Ensure adherence to NAFDAC and other local healthcare regulations seamlessly.</p>
+</div>
+</li>
+<li class="flex items-start gap-3 bg-surface p-4 rounded-lg border border-outline-variant shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="local_shipping">local_shipping</span>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary font-semibold">Supply Chain Optimization</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Streamline procurement and inventory management for vital medical supplies.</p>
+</div>
+</li>
+<li class="flex items-start gap-3 bg-surface p-4 rounded-lg border border-outline-variant shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="school">school</span>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary font-semibold">Clinical Training</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Comprehensive training programs for staff on new equipment and protocols.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="relative">
+<div class="aspect-square bg-surface rounded-2xl border border-outline-variant p-2 shadow-sm relative z-10">
+<img alt="Pharmaceutical Consulting" class="object-cover w-full h-full rounded-xl" data-alt="Two professional healthcare consultants in smart corporate attire discussing strategic documents in a modern, brightly lit office boardroom. The setting is a pristine white and grey corporate environment with large windows. They are reviewing charts and medical compliance forms. The atmosphere is serious, professional, and focused on high-touch healthcare solutions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_X0fVu_VkLb96x_lnU_FBDWlGKXAOMzy6Kxzfz54mnQ2lB1JoceBmI93501u6wVYGFn3QPryjcZepfk72xIAGonyTp5xJW7zZ7_CPhY7NN5Y80f7E0fSDk_111T194SyBhX9tosUB5wEHqFjG9WtbVXWXhnp8Qm9C6vUAJfDWjeMhUtMrxfqcJlJlU9rfgiCpfijGyJwbjjBlr6adT3AwgE_Dstq0JE39INJKPKgM62j7dPZrxPVN"/>
+</div>
+<!-- Accent decorative box -->
+<div class="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-secondary/10 rounded-2xl z-0 border border-secondary/20"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-container-margin-desktop py-section-gap max-w-7xl mx-auto">
+<div class="space-y-stack-sm">
+<div class="font-headline-md text-headline-md text-primary">
+                    Freshlance Nigeria
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+                    Empowering healthcare providers with premium medical solutions and strategic expertise.
+                </p>
+</div>
+<div class="space-y-stack-sm">
+<h4 class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">Services</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary transition-all opacity-90 hover:opacity-100" href="#">Care Services</a></li>
+<li><a class="font-body-sm text-body-sm text-primary font-bold hover:underline hover:text-secondary transition-all opacity-90 hover:opacity-100" href="#">Medical Solutions</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary transition-all opacity-90 hover:opacity-100" href="#">Compliance</a></li>
+</ul>
+</div>
+<div class="space-y-stack-sm">
+<h4 class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary transition-all opacity-90 hover:opacity-100" href="#">Corporate Info</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary transition-all opacity-90 hover:opacity-100" href="#">Contact Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:underline hover:text-secondary transition-all opacity-90 hover:opacity-100" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-3 pt-stack-md mt-stack-md border-t border-outline-variant">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">
+                    © 2024 Freshlance Nigeria. All Rights Reserved. Pharmaceutical regulatory disclaimers apply.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>
