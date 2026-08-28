@@ -2,6 +2,16 @@
 import '../styles/global.css';
 import { screenConfig } from '../lib/stitch';
 import { screens } from '../data/screens';
+import { House, Stethoscope, Factory, MailOpen, CalendarCheck } from '@lucide/astro';
+
+// Map Stitch section id -> Lucide Astro component (Astro-native icons)
+const navIcons: Record<string, any> = {
+  home: House,
+  care: Stethoscope,
+  equipment: Factory,
+  contact: MailOpen,
+};
+const CtaIcon = CalendarCheck;
 
 interface Props {
   title?: string;
@@ -41,26 +51,38 @@ const {
     <!-- UNIFORM premium top nav (DESKTOP only) -->
     <nav class="fl-nav">
       <div class="links">
-        {screens.map((s) => (
-          <a href={`#${s.id}`}>{s.nav}</a>
-        ))}
+        {screens.map((s) => {
+          const IconComp = navIcons[s.id];
+          return (
+            <a href={`#${s.id}`} data-spy={s.id}>
+              <IconComp size={18} strokeWidth={2} />
+              <span>{s.nav}</span>
+            </a>
+          );
+        })}
       </div>
       <a class="brand" href="#home">
         <img src="/logo.png" alt="Freshlance" />
       </a>
-      <a class="cta" href="#contact">Book a Consult</a>
+      <a class="cta" href="#contact">
+        <CtaIcon size={18} strokeWidth={2} />
+        <span>Book a Consult</span>
+      </a>
     </nav>
 
     <slot />
 
     <!-- UNIFORM premium bottom nav (MOBILE only) -->
     <nav class="fl-bottom">
-      {screens.map((s) => (
-        <a href={`#${s.id}`}>
-          <span class="material-symbols-outlined">{s.icon}</span>
-          <span>{s.nav}</span>
-        </a>
-      ))}
+      {screens.map((s) => {
+        const IconComp = navIcons[s.id];
+        return (
+          <a href={`#${s.id}`} data-spy={s.id}>
+            <IconComp size={22} strokeWidth={2} />
+            <span>{s.nav}</span>
+          </a>
+        );
+      })}
     </nav>
 
     <!-- UNIFORM premium footer -->
@@ -100,6 +122,63 @@ const {
     <script is:inline>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script>
+    <script>
+      import { animate, inView, stagger } from 'motion';
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1) Nav entrance (quiet fade-down) + CTA
+      if (!reduce) {
+        const nav = document.querySelector('.fl-nav');
+        if (nav) animate(nav, { opacity: [0, 1], y: [-12, 0] }, { duration: 0.5, easing: [0.16, 1, 0.3, 1] });
+      }
+
+      // 2) Scroll-spy: underline the active section link (top + bottom nav)
+      const spies = [...document.querySelectorAll('[data-spy]')];
+      const sections = screensData();
+      const byId = (id) => document.getElementById(id);
+      if ('IntersectionObserver' in window && sections.length) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const id = e.target.id;
+              document.querySelectorAll('[data-spy]').forEach((el) => {
+                el.classList.toggle('is-active', el.getAttribute('data-spy') === id);
+              });
+            }
+          });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        sections.forEach((s) => { const el = byId(s.id); if (el) obs.observe(el); });
+      }
+
+      // 3) Bottom-nav tap pop
+      document.querySelectorAll('.fl-bottom a').forEach((a) => {
+        a.addEventListener('click', () => {
+          a.classList.remove('pop');
+          void a.offsetWidth; // reflow to restart animation
+          a.classList.add('pop');
+        });
+      });
+
+      // 4) Scroll reveal on Stitch sections (staggered children if present)
+      if (!reduce) {
+        document.querySelectorAll('.fl-section').forEach((sec) => {
+          inView(sec, ({ target }) => {
+            const kids = target.querySelectorAll('.fl-reveal');
+            const targets = kids.length ? kids : [target];
+            animate(targets, { opacity: [0, 1], y: [24, 0] },
+              { duration: 0.55, easing: [0.16, 1, 0.3, 1], delay: stagger(0.08) });
+          }, { amount: 0.15 });
+        });
+      }
+
+      function screensData() {
+        // mirrors src/data/screens.ts ids
+        return [
+          { id: 'home' }, { id: 'care' }, { id: 'equipment' }, { id: 'contact' }
+        ];
       }
     </script>
   </body>

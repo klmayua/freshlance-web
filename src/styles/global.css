@@ -47,6 +47,8 @@ html, body {
   height: 46px;   /* larger logo */
   width: auto;
 }
+
+/* --- links: underline-in hover + active underline (no pill) --- */
 .fl-nav .links {
   display: flex;
   align-items: center;
@@ -55,39 +57,61 @@ html, body {
 }
 .fl-nav .links a {
   position: relative;
-  padding: 0.55rem 1rem;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
   font-weight: 600;
   font-size: 0.95rem;
   color: #44474a;
-  transition: color 0.18s ease, background 0.18s ease;
+  text-decoration: none;
+  transition: color 0.18s ease;
 }
-.fl-nav .links a:hover {
-  color: #1b6d24;
-  background: rgba(27, 109, 36, 0.07);
-}
-.fl-nav .links a.active {
-  color: #fff;
+.fl-nav .links a svg { width: 18px; height: 18px; }
+/* underline that grows from left on hover */
+.fl-nav .links a::after {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 2px;
   background: #1b6d24;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.fl-nav .links a.active:hover {
-  background: #155a1d;
-}
+.fl-nav .links a:hover { color: #1b6d24; }
+.fl-nav .links a:hover::after { transform: scaleX(1); }
+/* active = persistent underline + green text (scroll-spy toggles .is-active) */
+.fl-nav .links a.is-active { color: #1b6d24; }
+.fl-nav .links a.is-active::after { transform: scaleX(1); }
+.fl-nav .links a:active { transform: scale(0.97); }
+
+/* --- CTA: rectangular, tiny radius, micro-lift --- */
 .fl-nav .cta {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   background: #1b6d24;
   color: #fff !important;
-  padding: 0.6rem 1.35rem !important;
-  border-radius: 999px !important;
+  padding: 0.62rem 1.3rem !important;
+  border-radius: 4px !important;   /* rectangular, very slight radius */
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(27, 109, 36, 0.28);
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(27, 109, 36, 0.22);
   transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
 }
+.fl-nav .cta svg { width: 18px; height: 18px; }
 .fl-nav .cta:hover {
   background: #155a1d !important;
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(27, 109, 36, 0.34);
+  box-shadow: 0 10px 24px rgba(27, 109, 36, 0.3);
 }
+.fl-nav .cta:active { transform: translateY(0) scale(0.98); }
 
 /* ---------- UNIFORM PREMIUM BOTTOM NAV (mobile) ---------- */
 .fl-bottom {
@@ -127,6 +151,31 @@ html, body {
 }
 .fl-bottom a.active .material-symbols-outlined {
   font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+/* tap pop on mobile bottom nav (Motion One adds .pop class via JS) */
+.fl-bottom a.pop .material-symbols-outlined {
+  animation: fl-pop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes fl-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Motion One scroll-reveal defaults (progressive enhancement) ---------- */
+.fl-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+.fl-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl-reveal { opacity: 1 !important; transform: none !important; }
+  .fl-nav .links a::after { transition: none; }
+  .fl-bottom a.pop .material-symbols-outlined { animation: none; }
 }
 
 /* ---------- Page content needs bottom padding on mobile (for fixed bottom nav) ---------- */
