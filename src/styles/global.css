@@ -36,7 +36,7 @@ html, body {
 .fl-nav .brand {
   display: flex;
   align-items: center;
-  justify-self: start;
+  justify-self: center;
 }
 .fl-nav .brand img {
   height: 46px;   /* larger logo */
@@ -45,7 +45,7 @@ html, body {
 .fl-nav .links {
   display: flex;
   align-items: center;
-  justify-self: center;
+  justify-self: start;
   gap: 0.25rem;
 }
 .fl-nav .links a {

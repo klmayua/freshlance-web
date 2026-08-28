@@ -49,14 +49,14 @@ const ICONS = {
   <body class="fl-app">
     <!-- UNIFORM premium top nav (desktop) -->
     <nav class="fl-nav">
-      <a class="brand" href="/">
-        <img src="/logo.png" alt="Freshlance" />
-      </a>
       <div class="links">
         {screens.map((s) => (
           <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>{s.nav}</a>
         ))}
       </div>
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="Freshlance" />
+      </a>
       <a class="cta" href="/consultation-contact">Book a Consult</a>
     </nav>
 
