@@ -14,12 +14,12 @@ html, body {
 .fl-section { scroll-margin-top: 84px; }
 
 /* ---------- Device swap: Mobile screen on phones, Desktop screen on wide ---------- */
-.device-mobile { display: block; }
-.device-desktop { display: none; }
+.device-mobile { display: block !important; }
+.device-desktop { display: none !important; }
 
 @media (min-width: 768px) {
-  .device-mobile { display: none; }
-  .device-desktop { display: block; }
+  .device-mobile { display: none !important; }
+  .device-desktop { display: block !important; }
 }
 
 /* ---------- UNIFORM PREMIUM TOP NAV (desktop) ---------- */
