@@ -6,20 +6,11 @@ import { screens } from '../data/screens';
 interface Props {
   title?: string;
   description?: string;
-  activePath?: string; // '' for home
 }
 const {
   title = 'Freshlance — Innovative Healthcare',
   description = 'Freshlance delivers high-touch, innovative healthcare across Nigeria — specialized care, medical equipment & consulting, and consultation services.',
-  activePath = '',
 } = Astro.props;
-
-const ICONS = {
-  '': 'home',
-  'specialized-care': 'medical_services',
-  'equipment-consulting': 'precision_manufacturing',
-  'consultation-contact': 'contact_mail',
-};
 ---
 <!doctype html>
 <html lang="en">
@@ -47,26 +38,26 @@ const ICONS = {
     </style>
   </head>
   <body class="fl-app">
-    <!-- UNIFORM premium top nav (desktop) -->
+    <!-- UNIFORM premium top nav (DESKTOP only) -->
     <nav class="fl-nav">
       <div class="links">
         {screens.map((s) => (
-          <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>{s.nav}</a>
+          <a href={`#${s.id}`}>{s.nav}</a>
         ))}
       </div>
-      <a class="brand" href="/">
+      <a class="brand" href="#home">
         <img src="/logo.png" alt="Freshlance" />
       </a>
-      <a class="cta" href="/consultation-contact">Book a Consult</a>
+      <a class="cta" href="#contact">Book a Consult</a>
     </nav>
 
     <slot />
 
-    <!-- UNIFORM premium bottom nav (mobile) -->
+    <!-- UNIFORM premium bottom nav (MOBILE only) -->
     <nav class="fl-bottom">
       {screens.map((s) => (
-        <a href={s.path ? `/${s.path}` : '/'} class={s.path === activePath ? 'active' : ''}>
-          <span class="material-symbols-outlined">{ICONS[s.path] || 'home'}</span>
+        <a href={`#${s.id}`}>
+          <span class="material-symbols-outlined">{s.icon}</span>
           <span>{s.nav}</span>
         </a>
       ))}
@@ -82,24 +73,24 @@ const ICONS = {
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="/specialized-care">Specialized Care</a></li>
-            <li><a href="/equipment-consulting">Equipment &amp; Consulting</a></li>
-            <li><a href="/consultation-contact">Consultation</a></li>
+            <li><a href="#care">Specialized Care</a></li>
+            <li><a href="#equipment">Equipment &amp; Consulting</a></li>
+            <li><a href="#contact">Consultation</a></li>
           </ul>
         </div>
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/consultation-contact">Contact</a></li>
-            <li><a href="/consultation-contact">Book Inquiry</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Book Inquiry</a></li>
           </ul>
         </div>
         <div>
           <h4>Legal</h4>
           <ul>
-            <li><a href="/consultation-contact">Privacy Policy</a></li>
-            <li><a href="/consultation-contact">Regulatory</a></li>
+            <li><a href="#contact">Privacy Policy</a></li>
+            <li><a href="#contact">Regulatory</a></li>
           </ul>
         </div>
       </div>

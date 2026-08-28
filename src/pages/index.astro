@@ -3,13 +3,19 @@ import Base from '../layouts/Base.astro';
 import { screenContent } from '../lib/stitch';
 import { screens } from '../data/screens';
 
-const home = screens[0];
-const mobile = screenContent(home.mobile);
-const desktop = screenContent(home.desktop);
+const sections = screens.map((s) => ({
+  ...s,
+  mobile: screenContent(s.mobile),
+  desktop: screenContent(s.desktop),
+}));
 ---
-<Base title={home.title} activePath="">
+<Base>
   <div class="fl-page">
-    <div class="device-mobile" set:html={mobile}></div>
-    <div class="device-desktop" set:html={desktop}></div>
+    {sections.map((sec) => (
+      <section id={sec.id} class="fl-section">
+        <div class="device-mobile" set:html={sec.mobile}></div>
+        <div class="device-desktop" set:html={sec.desktop}></div>
+      </section>
+    ))}
   </div>
 </Base>

@@ -1,5 +1,7 @@
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -7,6 +9,9 @@ html, body {
   font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   color: #0b1c30;
 }
+
+/* Each Stitch design = one anchored section on a SINGLE page */
+.fl-section { scroll-margin-top: 84px; }
 
 /* ---------- Device swap: Mobile screen on phones, Desktop screen on wide ---------- */
 .device-mobile { display: block; }
@@ -91,7 +96,7 @@ html, body {
   left: 0;
   right: 0;
   z-index: 50;
-  display: none;
+  display: flex;
   justify-content: space-around;
   align-items: stretch;
   background: rgba(255, 255, 255, 0.9);
@@ -124,12 +129,12 @@ html, body {
   font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
 }
 
-/* ---------- Page content needs bottom padding on mobile (for fixed nav) ---------- */
-.fl-page { padding-bottom: 76px; }
+/* ---------- Page content needs bottom padding on mobile (for fixed bottom nav) ---------- */
+.fl-page { padding-bottom: 84px; }
 @media (min-width: 768px) {
   .fl-page { padding-bottom: 0; }
-  .fl-nav { display: flex; }
-  .fl-bottom { display: flex; }
+  .fl-nav { display: flex; }   /* top nav: desktop only */
+  .fl-bottom { display: none; } /* bottom tab bar: mobile only */
 }
 
 /* ---------- UNIFORM PREMIUM FOOTER (shell) ---------- */
