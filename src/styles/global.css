@@ -133,7 +133,16 @@ html, body {
 .fl-page { padding-bottom: 84px; }
 @media (min-width: 768px) {
   .fl-page { padding-bottom: 0; }
-  .fl-nav { display: flex; }   /* top nav: desktop only */
+  .fl-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .fl-nav .links { justify-content: flex-start; }
+  .fl-nav .cta { justify-self: end; }
   .fl-bottom { display: none; } /* bottom tab bar: mobile only */
 }
 
