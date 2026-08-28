@@ -123,37 +123,46 @@ html, body {
   display: flex;
   justify-content: space-around;
   align-items: stretch;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-top: 1px solid rgba(196, 199, 202, 0.7);
-  padding: 0.4rem 0 calc(0.4rem + env(safe-area-inset-bottom));
-  box-shadow: 0 -2px 12px rgba(11, 28, 48, 0.06);
+  padding: 0.35rem 0 calc(0.35rem + env(safe-area-inset-bottom));
+  box-shadow: 0 -2px 12px rgba(11, 28, 48, 0.08);
 }
+/* each tab: equal width, >=48px tap target, no overflow on narrow phones */
 .fl-bottom a {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.15rem;
-  padding: 0.45rem 0;
-  font-size: 0.68rem;
+  justify-content: center;
+  gap: 0.18rem;
+  padding: 0.3rem 0.2rem;
+  font-size: 0.66rem;
   font-weight: 600;
   color: #74777a;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
   transition: color 0.18s ease;
 }
-.fl-bottom a .material-symbols-outlined {
-  font-size: 1.55rem;
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+.fl-bottom a svg { width: 22px; height: 22px; }
+/* active tab: green text + filled indicator dot (scroll-spy toggles .active) */
+.fl-bottom a.active { color: #1b6d24; }
+.fl-bottom a.active::before {
+  content: "";
+  position: absolute;
+  top: 0.28rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1b6d24;
 }
-.fl-bottom a.active {
-  color: #1b6d24;
-}
-.fl-bottom a.active .material-symbols-outlined {
-  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-}
+.fl-bottom a { position: relative; }
 /* tap pop on mobile bottom nav (Motion One adds .pop class via JS) */
-.fl-bottom a.pop .material-symbols-outlined {
+.fl-bottom a.pop svg {
   animation: fl-pop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 @keyframes fl-pop {

@@ -135,27 +135,31 @@ const {
         if (nav) animate(nav, { opacity: [0, 1], y: [-12, 0] }, { duration: 0.5, easing: [0.16, 1, 0.3, 1] });
       }
 
-      // 2) Scroll-spy: underline the active section link (top + bottom nav)
-      const spies = [...document.querySelectorAll('[data-spy]')];
+      // 2) Scroll-spy: highlight the active section link (top + bottom nav)
       const sections = screensData();
       const byId = (id) => document.getElementById(id);
+      const setActive = (id) => {
+        document.querySelectorAll('[data-spy]').forEach((el) => {
+          el.classList.toggle('active', el.getAttribute('data-spy') === id);
+          if (el.getAttribute('data-spy') === id) el.setAttribute('aria-current', 'page');
+          else el.removeAttribute('aria-current');
+        });
+      };
+      // default: first section active on load
+      setActive('home');
       if ('IntersectionObserver' in window && sections.length) {
         const obs = new IntersectionObserver((entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) {
-              const id = e.target.id;
-              document.querySelectorAll('[data-spy]').forEach((el) => {
-                el.classList.toggle('is-active', el.getAttribute('data-spy') === id);
-              });
-            }
+            if (e.isIntersecting) setActive(e.target.id);
           });
         }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
         sections.forEach((s) => { const el = byId(s.id); if (el) obs.observe(el); });
       }
 
-      // 3) Bottom-nav tap pop
+      // 3) Bottom-nav tap pop + instant active on tap (so the tap feels responsive)
       document.querySelectorAll('.fl-bottom a').forEach((a) => {
         a.addEventListener('click', () => {
+          setActive(a.getAttribute('data-spy'));
           a.classList.remove('pop');
           void a.offsetWidth; // reflow to restart animation
           a.classList.add('pop');
