@@ -27,8 +27,13 @@ export function screenContent(id) {
   let body = screenBody(id);
   body = body.replace(/<header[\s\S]*?<\/header>/gi, '');
   body = body.replace(/<footer[\s\S]*?<\/footer>/gi, '');
-  // mobile bottom nav: Stitch marks it `class="md:hidden ..."`
+  // mobile bottom nav: Stitch marks it <nav class="md:hidden ..."> OR
+  // <div class="md:hidden fixed bottom-0 ..."> — both are stripped so they
+  // don't render a DUPLICATE fixed bar on top of the shared .fl-bottom.
   body = body.replace(/<nav\s+class="md:hidden[\s\S]*?<\/nav>/gi, '');
+  body = body.replace(/<div\s+class="[^"]*md:hidden[^"]*fixed\s+bottom-0[\s\S]*?<\/div>/gi, '');
+  body = body.replace(/<nav\s+class="[^"]*fixed\s+bottom-0[^"]*md:hidden[\s\S]*?<\/nav>/gi, '');
+  body = body.replace(/<nav\s+class="[^"]*fixed\s+bottom-0[^"]*[\s\S]*?<\/nav>/gi, '');
   // any remaining bare <nav> that isn't the shared shell
   body = body.replace(/<nav[\s\S]*?<\/nav>/gi, '');
   return body;

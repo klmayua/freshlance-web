@@ -13,6 +13,11 @@ html, body {
 /* Each Stitch design = one anchored section on a SINGLE page */
 .fl-section { scroll-margin-top: 84px; }
 
+/* Stitch designs contain decorative blobs positioned off-edge (e.g. -right-20 w-64,
+   right-0 w-64) that overflow narrow phones and cause horizontal scroll. Clip them. */
+.fl-section { overflow: hidden; }
+.fl-page { overflow-x: clip; max-width: 100%; }
+
 /* ---------- Device swap: Mobile screen on phones, Desktop screen on wide ---------- */
 .device-mobile { display: block !important; }
 .device-desktop { display: none !important; }
